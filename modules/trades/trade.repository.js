@@ -1,6 +1,6 @@
 const db = require("../../config/db");
 
-exports.save = async(data)=>{
+exports.saveTrade = async(data)=>{
     const trade = await db.query(
         `INSERT INTO trades(user_id,symbol,side,amount,price,status)
         VALUES($1,$2,$3,$4,$5,$6)
