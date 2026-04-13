@@ -28,7 +28,8 @@ exports.login = async(data)=>{
 
     const token = jwt.sign(
         {id: user.rows[0].id},
-        process.env.JWT_SECRET
+        process.env.JWT_SECRET,
+        { expiresIn: "7d" }
     );
 
     return token;
