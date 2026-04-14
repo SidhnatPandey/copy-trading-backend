@@ -1,3 +1,3 @@
 exports.calculatePnL = (entry, current, qty) => {
-    return (current-entry) * qty;
+  return (current - entry) * qty;
 };

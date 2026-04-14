@@ -1,8 +1,7 @@
 const db = require("../../config/db");
 
-exports.getLeaderboard = async()=>{
-
- const result = await db.query(`
+exports.getLeaderboard = async () => {
+  const result = await db.query(`
  SELECT user_id,
  SUM(amount*price) as trading_volume
  FROM trades
@@ -11,6 +10,5 @@ exports.getLeaderboard = async()=>{
  LIMIT 10
  `);
 
- return result.rows;
-
-}
+  return result.rows;
+};
