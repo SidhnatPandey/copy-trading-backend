@@ -18,6 +18,7 @@ exports.login = async (data) => {
     data.email,
   ]);
 
+  if (user.rows.length === 0) throw new Error("User not found");
   const valid = await bcrypt.compare(data.password, user.rows[0].password);
 
   if (!valid) throw new Error("Invalid credentials");
