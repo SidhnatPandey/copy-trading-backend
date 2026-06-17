@@ -37,7 +37,7 @@ exports.updateUser = async (id, data) => {
   if (data && data.avatar) {
     try {
       const existing = await repo.findById(id);
-      const prevAvatar = existing && existing.avatar;
+      const prevAvatar = existing && existing.profile_image_url;
       const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
       const publicId = extractCloudinaryPublicId(prevAvatar, cloudName);
       if (publicId) {
