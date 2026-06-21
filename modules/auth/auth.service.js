@@ -66,7 +66,7 @@ exports.forgotPassword = async (data) => {
     [userRow.id, token, expiresAt],
   );
 
-  const frontendUrl = process.env.FRONTEND_URL || "http://localhost:3000";
+  const frontendUrl = process.env.FRONTEND_URL || "http://localhost:8080";
   const resetUrl = `${frontendUrl}/reset-password?token=${token}`;
   try {
     await emailService.sendResetEmail(userRow.email, resetUrl, userRow.name);
